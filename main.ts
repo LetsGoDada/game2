@@ -12,19 +12,28 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     )
     animation.runMovementAnimation(
     mySprite,
-    animation.animationPresets(animation.flyToCenter),
-    2000,
+    animation.animationPresets(animation.bobbingLeft),
+    5000,
     false
     )
+    if (true) {
+        timer.after(500, function () {
+            scene.setBackgroundImage(assets.image`H2`)
+        })
+    }
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.splash("Hallo Wie Kann ich dir Helfen")
+    game.splash("Ich Würde gerne Ein Bisschen Fisch haben zum essen")
+    game.splash("Dann komm mit")
+    game.splash("Drücke a damit sich der Bär bewegt")
 })
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 music.play(music.createSong(assets.song`melodie`), music.PlaybackMode.LoopingInBackground)
+scene.setBackgroundImage(assets.image`H1`)
 let statusbar = statusbars.create(20, 4, StatusBarKind.Health)
 statusbar.setPosition(80, 40)
-let mySprite3 = sprites.create(assets.image`Hintergrund`, SpriteKind.Hintergrund)
-scaling.scaleByPixels(mySprite3, 121, ScaleDirection.Horizontally, ScaleAnchor.Middle, true)
-scaling.scaleByPixels(mySprite3, 30, ScaleDirection.Vertically, ScaleAnchor.Middle, true)
 mySprite = sprites.create(assets.image`Bär`, SpriteKind.Baer)
 mySprite.setPosition(150, 68)
 mySprite2 = sprites.create(assets.image`Player`, SpriteKind.Player)
